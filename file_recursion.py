@@ -33,4 +33,16 @@ def find_files(suffix, path):
     return files_with_suffix
 
 
-print(find_files('c', 'C:/Users/pc/Downloads/Documents/testdir'))
+# print(find_files('c', 'C:/Users/pc/Downloads/Documents/testdir'))
+
+def test_function(path):
+    result = find_files('c', path)
+    test_result = ''
+    for _ in result:
+        if not _.endswith('.c'):
+            test_result = "FAIL"
+    test_result = "PASS"
+    print(test_result)
+
+
+test_function('C:/Users/pc/Downloads/Documents/testdir')

@@ -50,9 +50,7 @@ sub_child.add_user(sub_child_user)
 child.add_group(sub_child)
 parent.add_group(child)
 
-
-print(parent)
-
+# print(parent)
 
 def test_function1(parent, child):
     if child in parent.get_groups():
