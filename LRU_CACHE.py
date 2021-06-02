@@ -1,10 +1,10 @@
-class LRU_Cache(object):
+class LRU_Cache:
 
     def __init__(self, capacity):
         # Initialize class variables
         self.cache = {}
         self.num_element = 0
-        self.capacity = 5
+        self.capacity = capacity
 
     def get(self, key):
         # Retrieve item from provided key. Return -1 if nonexistent.
@@ -21,29 +21,6 @@ class LRU_Cache(object):
             key_to_remove = list(self.cache.keys())[0]
             del(self.cache[key_to_remove])
             self.cache[key] = value
-
-    # def delete(self, key):
-    #     self.arr.pop(key)
-    #     self.num_element -= 1
-    #
-    # def get_arr_index(self, key):
-    #     return self.get_hash_code(key)
-
-    # def get_hash_code(self, key):
-    #     #key = str(key)
-    #     num_buckets = len(self.bucket_array)
-    #
-    #     # represents (self.p^0) which is 1
-    #     current_coefficient = 1
-    #     hash_code = 0
-    #
-    #     for character in key:
-    #         hash_code += ord(character) * current_coefficient
-    #         hash_code = hash_code % num_buckets  # compress hash_code (return hash_code % num_buckets   Mod operation)
-    #         current_coefficient *= self.p
-    #         current_coefficient = current_coefficient % num_buckets  # compress coefficient as well
-    #
-    #     return hash_code % num_buckets
 
     def __str__(self):
         return f"{self.cache}"
@@ -64,4 +41,20 @@ our_cache.set(4, 4)
 our_cache.set(5, 5)
 our_cache.set(6, 6)
 
-print(our_cache)
+
+def test_function1():
+    if (our_cache.get(1)) == -1:
+        print("PASS")
+    else:
+        print("FAIL")
+
+
+def test_function2():
+    if (our_cache.get(9)) == -1:
+        print("PASS")
+    else:
+        print("FAIL")
+
+
+test_function1()
+test_function2()
