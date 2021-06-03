@@ -35,9 +35,7 @@ class LinkedList:
 
     def previous_hash(self):
         node = self.head
-        print(node, "NONDEEEE")
         if node is None:
-            print("RETUNING 0")
             return 0
         while node.next:
             node = node.next
@@ -56,4 +54,24 @@ llist = LinkedList()
 llist.append(datetime.now(), "MARYAM YSUUF")
 llist.append(datetime.now(), "Rufai YSUUF")
 
-print(llist)
+
+def test_function1():
+    node = llist.head
+    if node.previous_hash == 0:
+        print("PASS")
+    else:
+        print("FAIL")
+
+
+def test_function2():
+    node = llist.head
+    while node is not None and node.next:
+        if not node.next.previous_hash == node.hash:
+            return "FAIL"
+        node = node.next
+
+    return "PASS"
+
+
+test_function1()
+print(test_function2())
