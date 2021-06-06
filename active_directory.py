@@ -52,6 +52,14 @@ parent.add_group(child)
 
 # print(parent)
 
+animal = Group("Animal")
+mammals = Group("Mammal")
+animal.add_group(mammals)
+
+
+new_specie = Group("NEW SPECIE")
+
+
 def test_function1(parent, child):
     if child in parent.get_groups():
         print("PASS")
@@ -66,5 +74,22 @@ def test_function2(child, sub_child):
         print("FAIL")
 
 
+def test_function3(animal):
+    if not animal.users:
+        print("PASS")
+    else:
+        print("FAIL")
+
+
+def test_function4(new_specie):
+    if not new_specie.groups:
+        print("PASS")
+    else:
+        print("FAIL")
+
+
+
 test_function1(parent, child)
 test_function2(parent, child)
+test_function3(animal)
+test_function4(new_specie)
