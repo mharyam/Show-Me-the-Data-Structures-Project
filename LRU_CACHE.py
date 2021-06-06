@@ -1,6 +1,8 @@
 class LRU_Cache:
 
     def __init__(self, capacity):
+        if capacity < 0:
+            return None
         # Initialize class variables
         self.cache = {}
         self.num_element = 0
@@ -23,7 +25,10 @@ class LRU_Cache:
             self.cache[key] = value
 
     def __str__(self):
-        return f"{self.cache}"
+        try:
+            return f"{self.cache}"
+        except:
+            return ""
 
 
 our_cache = LRU_Cache(5)
@@ -58,3 +63,16 @@ def test_function2():
 
 test_function1()
 test_function2()
+
+# second edge cas
+
+
+def test_function3():
+    second_cache = LRU_Cache(-1)
+    if second_cache == "":
+        print("PASS")
+    else:
+        print("FAIL")
+
+
+test_function3()
