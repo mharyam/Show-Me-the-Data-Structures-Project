@@ -80,18 +80,12 @@ class LinkedList:
 
 
 def union(llist_1, llist_2):
-    # linked_list_to_check = LinkedList()
-    # head = llist_1.head
-    # while head.next:
-    #     head = head.next
-    #     linked_list_to_check.append(head.value)
-
     head = llist_2.head
-    while head.next:
-        head = head.next
-        if  not llist_1.search(head.value):
-            llist_1.append(head.value)
-
+    if head:
+        while head.next:
+            head = head.next
+            if not llist_1.search(head.value):
+                llist_1.append(head.value)
     return llist_1
 
 
@@ -99,10 +93,11 @@ def intersection(llist_1, llist_2):
     temp_list = LinkedList()
     head = llist_1.head
 
-    while head.next:
-        if llist_2.search(head.value):
-            temp_list.append(head.value)
-        head = head.next
+    if head:
+        while head.next:
+            if llist_2.search(head.value):
+                temp_list.append(head.value)
+            head = head.next
 
     return temp_list
 
@@ -142,8 +137,8 @@ def test_intersection_function(test_case):
 linked_list_1 = LinkedList()
 linked_list_2 = LinkedList()
 
-element_1 = [3,2,4,35,6,65,6,4,3,21]
-element_2 = [6,32,4,9,6,1,11,21,1]
+element_1 = [3, 2, 4, 35, 6, 65, 6, 4, 3, 21]
+element_2 = [6, 32, 4, 9, 6, 1, 11, 21, 1]
 
 for i in element_1:
     linked_list_1.append(i)
@@ -160,8 +155,8 @@ test_union_function([linked_list_1, linked_list_2])
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
 
-element_1 = [3,2,4,35,6,65,6,4,3,23]
-element_2 = [1,7,8,9,11,21,1]
+element_1 = [3, 2, 4, 35, 6, 65, 6, 4, 3, 23]
+element_2 = [1, 7, 8, 9, 11, 21, 1]
 
 for i in element_1:
     linked_list_3.append(i)
@@ -171,3 +166,14 @@ for i in element_2:
 
 (test_union_function([linked_list_3, linked_list_4]))
 (test_intersection_function([linked_list_3, linked_list_4]))
+
+
+#second edge case test
+
+empty_list = LinkedList()
+empty_list2 = LinkedList()
+
+(test_union_function([empty_list, empty_list2]))
+(test_intersection_function([empty_list, empty_list2]))
+
+
