@@ -37,12 +37,12 @@ def find_files(suffix, path):
 
 def test_function(path):
     result = find_files('c', path)
-    test_result = ''
+    test_result = 'FAIL'
     for _ in result:
-        if not _.endswith('.c'):
-            test_result = "FAIL"
-    test_result = "PASS"
+        if _.endswith('.c'):
+            test_result = "PASS"
     print(test_result)
 
 
-test_function('C:/Users/pc/Downloads/Documents/testdir')
+test_function('C:/Users/pc/Downloads/Documents/testdir')  # this should pass
+test_function('C:/Users/pc/Documents/PROJECTS/api_project')  # this should fail
