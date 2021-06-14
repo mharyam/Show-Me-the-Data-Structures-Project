@@ -19,6 +19,12 @@ class Node:
         # tree direction (0/1)
         self.huff = ''
 
+    def __str__(self):
+        return f"{self.freq}-{self.symbol}"
+
+    def __repr__(self):
+        return f"{self.freq}-{self.symbol}"
+
 
 def print_nodes(node, val=''):
     # huffman code for current node
@@ -37,6 +43,8 @@ def print_nodes(node, val=''):
 
 
 def huffman_encoding(data):
+    if not data:
+        return ''
     data_dict = dict()
 
     for _ in data:
@@ -50,7 +58,6 @@ def huffman_encoding(data):
 
     # list containing unused nodes
     nodes = []
-
     for x in range(len(chars)):
         nodes.append(Node(freq[x], chars[x]))
 
@@ -75,8 +82,7 @@ def huffman_encoding(data):
         nodes.remove(right)
         nodes.append(new_node)
 
-    print_nodes(nodes[0])
-
+    return nodes[0]
 
 def huffman_decoding(data, tree):
     pass
@@ -87,16 +93,22 @@ if __name__ == "__main__":
 
     a_great_sentence = "The bird is the word"
 
-    print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
-    print ("The content of the data is: {}\n".format(a_great_sentence))
+    # print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
+    # print("The content of the data is: {}\n".format(a_great_sentence))
 
-    encoded_data, tree = huffman_encoding(a_great_sentence)
-
-    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
-    print ("The content of the encoded data is: {}\n".format(encoded_data))
+    # print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    # print("The content of the encoded data is: {}\n".format(encoded_data))
 
     # decoded_data = huffman_decoding(encoded_data, tree)
     #
     # print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     # print ("The content of the encoded data is: {}\n".format(decoded_data))
+
+    print(huffman_encoding(a_great_sentence))
+    # test with empty string, should return ''
+    print(huffman_encoding(''))
+
+    # test with repetitive character, should return the number of character and the character
+    print(huffman_encoding('AAAAAA'))
+
 
