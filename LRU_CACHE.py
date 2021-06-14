@@ -1,7 +1,7 @@
 class LRU_Cache:
 
-    def __init__(self, capacity):
-        if capacity < 0:
+    def __init__(self, capacity=None):
+        if not capacity:
             return None
         # Initialize class variables
         self.cache = {}
@@ -75,4 +75,13 @@ def test_function3():
         print("FAIL")
 
 
+def test_capacity_null():
+    second_cache = LRU_Cache()
+    if second_cache == "":
+        print("PASS")
+    else:
+        print("FAIL")
+
+
 test_function3()
+test_capacity_null()
