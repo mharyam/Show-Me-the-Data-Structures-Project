@@ -56,6 +56,12 @@ animal = Group("Animal")
 mammals = Group("Mammal")
 animal.add_group(mammals)
 
+users = ['Cute_Bamboo', 'Big_Dog', 'Meow_cat', 'MR_Zebra']
+animal.users = users
+
+mammal_users = ['Mr_Bat', 'Human_race']
+mammals.users = mammal_users
+
 
 new_specie = Group("NEW SPECIE")
 
@@ -88,8 +94,29 @@ def test_function4(new_specie):
         print("FAIL")
 
 
+def test_user_not_in_group(parent_group, user):  # add edge case checking user not in group
+    if user in parent_group.users:
+        print("PASS")
+    else:
+        print("FAIL")
+
+
+def test_empty_user(parent_group):  # add edge case checking user not in group
+    if parent_group.users:
+        print("FAIL")
+    else:
+        print("PASS")
+
 
 test_function1(parent, child)
 test_function2(parent, child)
 test_function3(animal)
 test_function4(new_specie)
+
+
+test_user_not_in_group(mammals, 'Cute_Bamboo')  # should FAIL
+test_user_not_in_group(animal, 'Cute_Bamboo')  # should PASS
+test_empty_user(parent)  # should fail
+
+
+
