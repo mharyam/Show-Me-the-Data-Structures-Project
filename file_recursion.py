@@ -46,3 +46,4 @@ def test_function(path):
 
 test_function('C:/Users/pc/Downloads/Documents/testdir')  # this should pass
 test_function('C:/Users/pc/Documents/PROJECTS/api_project')  # this should fail
+test_function('C:/Users/pc/Documents/TXT')  # this should fail
