@@ -2,12 +2,13 @@
 
 1) LRU CACHE:
     I used a dictionary as my data structure to get and set values
-    The Time complexity is  O(n) because dictionary is a hashmap
+    The Time complexity is  O(1) because dictionary is a hashmap
     The space complexity is 0(n)
    
 
 2) FILE RECURSION:
     I am using recursion in here, so the Time complexity is 0(n) 
+   The space complexity is 0(1)
    
 
 3) Huffman Coding: 
