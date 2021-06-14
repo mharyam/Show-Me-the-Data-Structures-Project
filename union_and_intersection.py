@@ -177,3 +177,8 @@ empty_list2 = LinkedList()
 (test_intersection_function([empty_list, empty_list2]))
 
 
+#  third  edge case where one list is empty
+(test_union_function([empty_list, linked_list_4]))
+(test_intersection_function([empty_list, linked_list_4]))
+
+
