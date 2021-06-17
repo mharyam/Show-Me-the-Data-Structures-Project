@@ -8,7 +8,7 @@
 
 2) FILE RECURSION:
     I am using recursion in here, so the Time complexity is 0(n) 
-   The space complexity is 0(1)
+   The space complexity is 0(n)
    
 
 3) Huffman Coding: 
